@@ -7,7 +7,6 @@ function App() {
     <BrowserRouter>
       <Header/>
       <Switch>
-        
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>
