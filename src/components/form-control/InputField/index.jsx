@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Controller } from 'react-hook-form';
 import { TextField } from '@material-ui/core';
+import { Controller } from 'react-hook-form';
 
 InputField.propTypes = {
-  name: PropTypes.string.isRequired,
   form: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
 
   label: PropTypes.string,
   disable: PropTypes.bool,
 };
+
 function InputField(props) {
-  const { name, form, label, disable } = props;
+  const { form, name, label, disable } = props;
   const { control } = form;
   console.log(control);
+
   return (
     <Controller
       name={name}
@@ -34,7 +36,6 @@ function InputField(props) {
           name={name}
           value={value}
           disabled={disable}
-          size="small"
         />
       )}
     ></Controller>
@@ -42,21 +43,3 @@ function InputField(props) {
 }
 
 export default InputField;
-
-// 	<Controller
-// 	control={control}
-// 	name="test"
-// 	render={({
-// 	  field: { onChange, onBlur, value, name, ref },
-// 	  fieldState: { invalid, isTouched, isDirty, error },
-// 	  formState,
-// 	}) => (
-// 	  <Checkbox
-// 		onBlur={onBlur}
-// 		onChange={onChange}
-// 		checked={value}
-// 		inputRef={ref}
-// 	  />
-// 	)}
-//   />
-//

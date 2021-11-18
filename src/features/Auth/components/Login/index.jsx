@@ -5,11 +5,12 @@ import { register } from '../../userSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useSnackbar } from 'notistack';
 import PropTypes from 'prop-types';
+import LoginForm from '../LoginForm';
 
-Register.propTypes = {
+Login.propTypes = {
   closeDialog: PropTypes.func,
 };
-function Register(props) {
+function Login(props) {
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
@@ -27,8 +28,6 @@ function Register(props) {
       if (closeDialog) {
         closeDialog();
       }
-      //show message successfully
-      enqueueSnackbar('Register successfully!!✅', { variant: 'success' });
     } catch (error) {
       console.log('Failed to register !!❌', error);
       enqueueSnackbar(error.message, { variant: 'error' });
@@ -36,9 +35,9 @@ function Register(props) {
   };
   return (
     <div>
-      <RegisterForm onSubmit={handleOnSubmit} />
+      <LoginForm onSubmit={handleOnSubmit} />
     </div>
   );
 }
 
-export default Register;
+export default Login;
